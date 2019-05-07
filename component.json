@@ -1,0 +1,152 @@
+{
+    "title": "FabricAdminClient",
+    "description": "Infrastructure role instance operation endpoints and objects.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/azsadmin-InfraRoleInstance/2016-05-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://adminmanagement.local.azurestack.external/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Authorization uses an Azure Active Directory OAuth2 flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "InfraRoleInstances_List": {
+            "main": "./lib/actions/InfraRoleInstances_List.js",
+            "title": "Returns a list of all infrastructure role instances at a location.",
+            "description": "Returns a list of all infrastructure role instances at a location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InfraRoleInstances_Get": {
+            "main": "./lib/actions/InfraRoleInstances_Get.js",
+            "title": "Return the requested infrastructure role instance.",
+            "description": "Return the requested infrastructure role instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InfraRoleInstances_PowerOff": {
+            "main": "./lib/actions/InfraRoleInstances_PowerOff.js",
+            "title": "Power off an infrastructure role instance.",
+            "description": "Power off an infrastructure role instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_PowerOff.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InfraRoleInstances_PowerOn": {
+            "main": "./lib/actions/InfraRoleInstances_PowerOn.js",
+            "title": "Power on an infrastructure role instance.",
+            "description": "Power on an infrastructure role instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_PowerOn.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InfraRoleInstances_Reboot": {
+            "main": "./lib/actions/InfraRoleInstances_Reboot.js",
+            "title": "Reboot an infrastructure role instance.",
+            "description": "Reboot an infrastructure role instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_Reboot.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "InfraRoleInstances_Shutdown": {
+            "main": "./lib/actions/InfraRoleInstances_Shutdown.js",
+            "title": "Shut down an infrastructure role instance.",
+            "description": "Shut down an infrastructure role instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/InfraRoleInstances_Shutdown.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
